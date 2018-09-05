@@ -1,0 +1,12 @@
+---
+
+- redmineUrl: 'http://redmine.foo'
+- ssl: true
+
+- project: project01
+  account: redmine
+  authKey: xxxxx
+
+- project: project02
+  account: redmineProd
+  authKey: zzzzz
