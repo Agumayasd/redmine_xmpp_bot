@@ -48,12 +48,24 @@ def getProjectConfig(stream, project):
         if project == v.get('project'):
             return v
 
+
 def openConfigFile(file):
     """
     This function check configuration file syntax
     and return a stream
     """
-
+    try:
+        # Open configuration file
+        with open(file, 'r') as f:
+            config = yaml.load(f)
+        if config is None:
+            message = 'config file is empty'
+            raise EmptyConfigFile(message)
+    except yaml.YAMLError as exc:
+        print("Error in configuration file:", exc)
+        raise
+    else:
+        return config
 
 
 if __name__ == '__main__':
